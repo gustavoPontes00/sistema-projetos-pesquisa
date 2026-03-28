@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central de Pesquisa</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="layout">
+
+    <aside class="menu-lateral">
+      <div class="logo">
+        <h1>🧪 LabControl</h1>
+        <p>Centro de Pesquisa</p>
+      </div>
+
+      <ul class="menu">
+        <li class="ativo">🏠 Início</li>
+        <li>📚 Linhas de Pesquisa</li>
+        <li>🧑‍🔬 Equipe</li>
+        <li>📌 Projetos</li>
+        <li>📈 Desempenho</li>
+        <li>📝 Publicações</li>
+      </ul>
+
+      <button class="btn-logout" onclick="sair()">Sair</button>
+    </aside>
+
+    <main class="principal">
+
+      <header class="cabecalho">
+        <div>
+          <h2>Painel de Monitoramento Científico</h2>
+          <p>Acompanhe os projetos e indicadores da pesquisa</p>
+        </div>
+        <div class="perfil">
+          <span>👨‍💼 Coordenador</span>
+        </div>
+      </header>
+
+      <section class="resumo">
+        <div class="widget">
+          <h3>Projetos Ativos</h3>
+          <p class="numero">09</p>
+          <span>em execução atualmente</span>
+        </div>
+
+        <div class="widget">
+          <h3>Publicações</h3>
+          <p class="numero">18</p>
+          <span>artigos submetidos</span>
+        </div>
+
+        <div class="widget">
+          <h3>Pesquisadores</h3>
+          <p class="numero">14</p>
+          <span>integrantes cadastrados</span>
+        </div>
+
+        <div class="widget destaque">
+          <h3>Taxa de Conclusão</h3>
+          <p class="numero">78%</p>
+          <span>projetos finalizados com sucesso</span>
+        </div>
+      </section>
+
+      <section class="grid-info">
+        
+        <div class="painel projetos">
+          <div class="topo-painel">
+            <h3>Projetos em Destaque</h3>
+            <button>Ver todos</button>
+          </div>
+
+          <div class="projeto-card">
+            <div>
+              <h4>Inteligência Artificial na Educação</h4>
+              <p>Responsável: Carlos Lima</p>
+            </div>
+            <span class="status andamento">Em andamento</span>
+          </div>
+
+          <div class="projeto-card">
+            <div>
+              <h4>Mapeamento Climático Regional</h4>
+              <p>Responsável: João Silva</p>
+            </div>
+            <span class="status concluido">Concluído</span>
+          </div>
+
+          <div class="projeto-card">
+            <div>
+              <h4>Saúde Pública e Comunidades</h4>
+              <p>Responsável: Ana Paula</p>
+            </div>
+            <span class="status revisao">Em revisão</span>
+          </div>
+
+          <div class="projeto-card">
+            <div>
+              <h4>Biodiversidade do Semiárido</h4>
+              <p>Responsável: Maria Souza</p>
+            </div>
+            <span class="status andamento">Em andamento</span>
+          </div>
+        </div>
+
+        <div class="painel atividades">
+          <div class="topo-painel">
+            <h3>Atividades Recentes</h3>
+          </div>
+
+          <ul class="timeline">
+            <li>
+              <strong>Projeto atualizado</strong>
+              <p>IA na Educação recebeu novos dados experimentais</p>
+              <span>há 2 horas</span>
+            </li>
+            <li>
+              <strong>Relatório enviado</strong>
+              <p>Biodiversidade do Semiárido teve relatório submetido</p>
+              <span>ontem</span>
+            </li>
+            <li>
+              <strong>Novo pesquisador</strong>
+              <p>Fernanda Alves foi adicionada à equipe</p>
+              <span>2 dias atrás</span>
+            </li>
+            <li>
+              <strong>Projeto concluído</strong>
+              <p>Mapeamento Climático Regional foi encerrado</p>
+              <span>3 dias atrás</span>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

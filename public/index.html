@@ -11,6 +11,7 @@
   <header>
     <h1>Sistema de Projetos de Pesquisa</h1>
     <p>Gerencie seus projetos acadêmicos com facilidade</p>
+    <button id="btnLogin" onclick="abrirModal()">Fazer Login</button>
   </header>
 
   <main>
@@ -19,5 +20,17 @@
     <p>Cadastro e acompanhamento de projetos de pesquisa institucionais.</p>
   </main>
 
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span onclick="fecharModal()" class="fechar">&times;</span>
+      <h2>Login</h2>
+      <input type="text" id="login" placeholder="Usuário" />
+      <input type="password" id="senha" placeholder="Senha" />
+      <button onclick="entrar()">Entrar</button>
+    </div>
+  </div> 
+
+  <script src="script.js"></script>
 </body>
 </html>
