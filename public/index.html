@@ -11,7 +11,10 @@
   <header>
     <h1>Sistema de Projetos de Pesquisa</h1>
     <p>Gerencie seus projetos acadêmicos com facilidade</p>
-    <button id="btnLogin" onclick="abrirModal()">Fazer Login</button>
+    <div class="header-botoes">
+      <button id="btnLogin" onclick="abrirModal('login')">Fazer Login</button>
+      <button id="btnCadastro" onclick="abrirModal('cadastro')">Cadastrar</button>
+    </div>
   </header>
 
   <main>
@@ -20,16 +23,30 @@
     <p>Cadastro e acompanhamento de projetos de pesquisa institucionais.</p>
   </main>
 
-  <!-- Modal -->
-  <div id="modal" class="modal">
+  <!-- Modal Login -->
+  <div id="modalLogin" class="modal">
     <div class="modal-content">
-      <span onclick="fecharModal()" class="fechar">&times;</span>
+      <span onclick="fecharModal('login')" class="fechar">&times;</span>
       <h2>Login</h2>
-      <input type="text" id="login" placeholder="Usuário" />
-      <input type="password" id="senha" placeholder="Senha" />
+      <input type="text" id="loginUsuario" placeholder="Usuário" />
+      <input type="password" id="loginSenha" placeholder="Senha" />
+      <p id="erroLogin" class="erro"></p>
       <button onclick="entrar()">Entrar</button>
     </div>
-  </div> 
+  </div>
+
+  <!-- Modal Cadastro -->
+  <div id="modalCadastro" class="modal">
+    <div class="modal-content">
+      <span onclick="fecharModal('cadastro')" class="fechar">&times;</span>
+      <h2>Cadastro</h2>
+      <input type="text" id="cadastroNome" placeholder="Nome completo" />
+      <input type="text" id="cadastroLogin" placeholder="Usuário" />
+      <input type="password" id="cadastroSenha" placeholder="Senha" />
+      <p id="erroCadastro" class="erro"></p>
+      <button onclick="cadastrar()">Cadastrar</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
