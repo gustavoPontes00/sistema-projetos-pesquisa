@@ -17,13 +17,19 @@
       </div>
 
       <ul class="menu">
-        <li class="ativo">🏠 Início</li>
-        <li>📚 Linhas de Pesquisa</li>
-        <li>🧑‍🔬 Equipe</li>
-        <li>📌 Projetos</li>
-        <li>📈 Desempenho</li>
-        <li>📝 Publicações</li>
-      </ul>
+  <li class="ativo">🏠 Início</li>
+  <li class="tem-submenu">
+    📋 Cadastros
+    <ul class="submenu">
+      <li onclick="window.location.href='usuarios.html'">👤 Usuários</li>
+    </ul>
+  </li>
+  <li>📚 Linhas de Pesquisa</li>
+  <li>🧑‍🔬 Equipe</li>
+  <li>📌 Projetos</li>
+  <li>📈 Desempenho</li>
+  <li>📝 Publicações</li>
+</ul>
 
       <button class="btn-logout" onclick="sair()">Sair</button>
     </aside>

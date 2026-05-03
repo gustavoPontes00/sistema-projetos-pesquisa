@@ -57,6 +57,59 @@ app.post('/login', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
+// Listar usuários
+app.get('/usuarios', (req, res) => {
+  db.query('SELECT usuario_id, nome, login FROM tbUsuarios', (err, results) => {
+    if (err) return res.status(500).json({ erro: 'Erro ao buscar usuários!' });
+    res.json(results);
+  });
+});
+
+// Cadastrar usuário
+app.post('/usuarios', (req, res) => {
+  const { nome, login, senha } = req.body;
+  if (!nome || !login || !senha) return res.status(400).json({ erro: 'Preencha todos os campos!' });
+
+  db.query('INSERT INTO tbUsuarios (nome, login, senha) VALUES (?, ?, ?)', [nome, login, senha], (err) => {
+    if (err) {
+      if (err.code === 'ER_DUP_ENTRY') return res.status(400).json({ erro: 'Login já cadastrado!' });
+      return res.status(500).json({ erro: 'Erro ao cadastrar usuário!' });
+    }
+    res.json({ mensagem: 'Usuário cadastrado com sucesso!' });
+  });
+});
+
+// Editar usuário
+app.put('/usuarios/:id', (req, res) => {
+  const { nome, login, senha } = req.body;
+  const { id } = req.params;
+
+  let sql = 'UPDATE tbUsuarios SET nome = ?, login = ?';
+  let params = [nome, login];
+
+  if (senha) {
+    sql += ', senha = ?';
+    params.push(senha);
+  }
+
+  sql += ' WHERE usuario_id = ?';
+  params.push(id);
+
+  db.query(sql, params, (err) => {
+    if (err) return res.status(500).json({ erro: 'Erro ao editar usuário!' });
+    res.json({ mensagem: 'Usuário atualizado com sucesso!' });
+  });
+});
+
+// Excluir usuário
+app.delete('/usuarios/:id', (req, res) => {
+  const { id } = req.params;
+  db.query('DELETE FROM tbUsuarios WHERE usuario_id = ?', [id], (err) => {
+    if (err) return res.status(500).json({ erro: 'Erro ao excluir usuário!' });
+    res.json({ mensagem: 'Usuário excluído com sucesso!' });
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });

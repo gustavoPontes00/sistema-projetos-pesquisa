@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuários - Sistema de Pesquisa</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="usuarios.css">
+</head>
+<body>
+
+  <div class="layout">
+
+    <aside class="menu-lateral">
+      <div class="logo">
+        <h1>🧪 LabControl</h1>
+        <p>Centro de Pesquisa</p>
+      </div>
+
+      <ul class="menu">
+        <li onclick="window.location.href='dashboard.html'">🏠 Início</li>
+        <li class="tem-submenu ativo">
+          📋 Cadastros
+          <ul class="submenu" style="display:block">
+            <li class="ativo-sub" onclick="window.location.href='usuarios.html'">👤 Usuários</li>
+          </ul>
+        </li>
+        <li>📚 Linhas de Pesquisa</li>
+        <li>🧑‍🔬 Equipe</li>
+        <li>📌 Projetos</li>
+        <li>📈 Desempenho</li>
+        <li>📝 Publicações</li>
+      </ul>
+
+      <button class="btn-logout" onclick="sair()">Sair</button>
+    </aside>
+
+    <main class="principal">
+
+      <header class="cabecalho">
+        <div>
+          <h2>👤 Gerenciamento de Usuários</h2>
+          <p>Cadastre, edite e remova usuários do sistema</p>
+        </div>
+        <button class="btn-novo" onclick="abrirModal()">+ Novo Usuário</button>
+      </header>
+
+      <section class="tabela-section">
+        <table id="tabelaUsuarios">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nome</th>
+              <th>Login</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="corpoTabela">
+            <tr><td colspan="4">Carregando...</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="fechar" onclick="fecharModal()">&times;</span>
+      <h2 id="tituloModal">Novo Usuário</h2>
+      <input type="hidden" id="usuarioId" />
+      <input type="text" id="nome" placeholder="Nome completo" />
+      <input type="text" id="login" placeholder="Login" />
+      <input type="password" id="senha" placeholder="Senha" />
+      <p id="erroModal" class="erro"></p>
+      <button onclick="salvar()">Salvar</button>
+    </div>
+  </div>
+
+  <script src="usuarios.js"></script>
+</body>
+</html>
