@@ -110,6 +110,50 @@ app.delete('/usuarios/:id', (req, res) => {
   });
 });
 
+// Listar pesquisadores
+app.get('/pesquisadores', (req, res) => {
+  db.query('SELECT * FROM tbPessoas', (err, results) => {
+    if (err) return res.status(500).json({ erro: 'Erro ao buscar pesquisadores!' });
+    res.json(results);
+  });
+});
+
+// Cadastrar pesquisador
+app.post('/pesquisadores', (req, res) => {
+  const { nome, cpf, nascimento, telefone, pessoa_tipo_id } = req.body;
+  if (!nome || !cpf || !nascimento) return res.status(400).json({ erro: 'Preencha os campos obrigatórios!' });
+
+  const sql = 'INSERT INTO tbPessoas (nome, cpf, nascimento, telefone, pessoa_tipo_id, atualizado_em) VALUES (?, ?, ?, ?, ?, NOW())';
+  db.query(sql, [nome, cpf, nascimento, telefone, pessoa_tipo_id], (err) => {
+    if (err) {
+      if (err.code === 'ER_DUP_ENTRY') return res.status(400).json({ erro: 'CPF já cadastrado!' });
+      return res.status(500).json({ erro: 'Erro ao cadastrar pesquisador!' });
+    }
+    res.json({ mensagem: 'Pesquisador cadastrado com sucesso!' });
+  });
+});
+
+// Editar pesquisador
+app.put('/pesquisadores/:id', (req, res) => {
+  const { nome, cpf, nascimento, telefone, pessoa_tipo_id } = req.body;
+  const { id } = req.params;
+
+  const sql = 'UPDATE tbPessoas SET nome=?, cpf=?, nascimento=?, telefone=?, pessoa_tipo_id=?, atualizado_em=NOW() WHERE pessoa_id=?';
+  db.query(sql, [nome, cpf, nascimento, telefone, pessoa_tipo_id, id], (err) => {
+    if (err) return res.status(500).json({ erro: 'Erro ao editar pesquisador!' });
+    res.json({ mensagem: 'Pesquisador atualizado com sucesso!' });
+  });
+});
+
+// Excluir pesquisador
+app.delete('/pesquisadores/:id', (req, res) => {
+  const { id } = req.params;
+  db.query('DELETE FROM tbPessoas WHERE pessoa_id = ?', [id], (err) => {
+    if (err) return res.status(500).json({ erro: 'Erro ao excluir pesquisador!' });
+    res.json({ mensagem: 'Pesquisador excluído com sucesso!' });
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
