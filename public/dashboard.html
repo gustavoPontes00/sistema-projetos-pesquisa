@@ -17,20 +17,21 @@
       </div>
 
       <ul class="menu">
-  <li class="ativo">🏠 Início</li>
-  <li class="tem-submenu">
-    📋 Cadastros
-    <ul class="submenu">
-      <li onclick="window.location.href='usuarios.html'">👤 Usuários</li>
-      <li onclick="window.location.href='pesquisadores.html'">🧑‍🔬 Pesquisadores</li>
-    </ul>
-  </li>
-  <li>📚 Linhas de Pesquisa</li>
-  <li>🧑‍🔬 Equipe</li>
-  <li>📌 Projetos</li>
-  <li>📈 Desempenho</li>
-  <li>📝 Publicações</li>
-</ul>
+        <li class="ativo">🏠 Início</li>
+        <li class="tem-submenu">
+          📋 Cadastros
+          <ul class="submenu">
+            <li onclick="window.location.href='usuarios.html'">👤 Usuários</li>
+            <li onclick="window.location.href='pesquisadores.html'">🧑‍🔬 Pesquisadores</li>
+            <li onclick="window.location.href='status.html'">🏷️ Status</li>
+            <li onclick="window.location.href='projetos.html'">📌 Projetos</li>
+          </ul>
+        </li>
+        <li>📚 Linhas de Pesquisa</li>
+        <li>🧑‍🔬 Equipe</li>
+        <li>📈 Desempenho</li>
+        <li>📝 Publicações</li>
+      </ul>
 
       <button class="btn-logout" onclick="sair()">Sair</button>
     </aside>
@@ -53,19 +54,16 @@
           <p class="numero">09</p>
           <span>em execução atualmente</span>
         </div>
-
         <div class="widget">
           <h3>Publicações</h3>
           <p class="numero">18</p>
           <span>artigos submetidos</span>
         </div>
-
         <div class="widget">
           <h3>Pesquisadores</h3>
           <p class="numero">14</p>
           <span>integrantes cadastrados</span>
         </div>
-
         <div class="widget destaque">
           <h3>Taxa de Conclusão</h3>
           <p class="numero">78%</p>
@@ -74,13 +72,12 @@
       </section>
 
       <section class="grid-info">
-        
+
         <div class="painel projetos">
           <div class="topo-painel">
             <h3>Projetos em Destaque</h3>
-            <button>Ver todos</button>
+            <button onclick="window.location.href='projetos.html'">Ver todos</button>
           </div>
-
           <div class="projeto-card">
             <div>
               <h4>Inteligência Artificial na Educação</h4>
@@ -88,7 +85,6 @@
             </div>
             <span class="status andamento">Em andamento</span>
           </div>
-
           <div class="projeto-card">
             <div>
               <h4>Mapeamento Climático Regional</h4>
@@ -96,7 +92,6 @@
             </div>
             <span class="status concluido">Concluído</span>
           </div>
-
           <div class="projeto-card">
             <div>
               <h4>Saúde Pública e Comunidades</h4>
@@ -104,7 +99,6 @@
             </div>
             <span class="status revisao">Em revisão</span>
           </div>
-
           <div class="projeto-card">
             <div>
               <h4>Biodiversidade do Semiárido</h4>
@@ -118,7 +112,6 @@
           <div class="topo-painel">
             <h3>Atividades Recentes</h3>
           </div>
-
           <ul class="timeline">
             <li>
               <strong>Projeto atualizado</strong>

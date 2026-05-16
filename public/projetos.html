@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos - Sistema de Pesquisa</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="usuarios.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="menu-lateral">
+      <div class="logo">
+        <h1>🧪 LabControl</h1>
+        <p>Centro de Pesquisa</p>
+      </div>
+      <ul class="menu">
+        <li onclick="window.location.href='dashboard.html'">🏠 Início</li>
+        <li class="tem-submenu ativo">
+          📋 Cadastros
+          <ul class="submenu" style="display:block">
+            <li onclick="window.location.href='usuarios.html'">👤 Usuários</li>
+            <li onclick="window.location.href='pesquisadores.html'">🧑‍🔬 Pesquisadores</li>
+            <li onclick="window.location.href='status.html'">🏷️ Status</li>
+            <li class="ativo-sub">📌 Projetos</li>
+          </ul>
+        </li>
+        <li>📚 Linhas de Pesquisa</li>
+        <li>🧑‍🔬 Equipe</li>
+        <li>📈 Desempenho</li>
+        <li>📝 Publicações</li>
+      </ul>
+      <button class="btn-logout" onclick="sair()">Sair</button>
+    </aside>
+
+    <main class="principal">
+      <header class="cabecalho">
+        <div>
+          <h2>📌 Gerenciamento de Projetos</h2>
+          <p>Cadastre, edite e remova projetos de pesquisa</p>
+        </div>
+        <button class="btn-novo" onclick="abrirModal()">+ Novo Projeto</button>
+      </header>
+
+      <section class="tabela-section">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Descrição</th>
+              <th>Pesquisador</th>
+              <th>Status</th>
+              <th>Início</th>
+              <th>Fim</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="corpoTabela">
+            <tr><td colspan="7">Carregando...</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="fechar" onclick="fecharModal()">&times;</span>
+      <h2 id="tituloModal">Novo Projeto</h2>
+      <input type="hidden" id="projetoId" />
+      <input type="text" id="descricao" placeholder="Descrição do projeto" />
+      <select id="pesquisador_id">
+        <option value="">Selecione o pesquisador</option>
+      </select>
+      <select id="status_id">
+        <option value="">Selecione o status</option>
+      </select>
+      <label>Início:</label>
+      <input type="date" id="inicio" />
+      <label>Fim:</label>
+      <input type="date" id="fim" />
+      <p id="erroModal" class="erro"></p>
+      <button onclick="salvar()">Salvar</button>
+    </div>
+  </div>
+
+  <script src="projetos.js"></script>
+</body>
+</html>
